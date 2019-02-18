@@ -1,0 +1,696 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>GlobalPayments.Api</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">GlobalPayments.Api</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> GlobalPayments.Api</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://github.com/globalpayments" target="_blank">
+						<img src="https://globalpayments.github.io/images/globapaymentsLogo.png" alt="Global Payments logo" title="Global Payments" align="right" width="225" />
+				</a></p>
+				<h1 id="heartland-global-payments-node-js-sdk">Heartland &amp; Global Payments Node.js SDK</h1>
+				<p>This SDK makes it easy to integrate your Node.js application with our Card Not Present and Card Present APIs.</p>
+				<h2 id="solutions">Solutions</h2>
+				<h3 id="general-omnichannel">General / Omnichannel</h3>
+				<ul>
+					<li>API Payment Processing</li>
+					<li>Apple Pay &amp; Google Pay</li>
+					<li>Secure Card Storage &amp; Customer Management</li>
+					<li>Subscriptions / Recurring Billing Solutions</li>
+					<li>Credit, Debit, Gift &amp; Loyalty, and eCheck/ACH</li>
+				</ul>
+				<h3 id="card-not-present-ecommerce-moto-specific">Card Not Present (Ecommerce &amp; MOTO) Specific</h3>
+				<ul>
+					<li>Minimize PCI compliance requirements with Hosted Payment Solutions</li>
+					<li>140+ Authorization Currencies &amp; 16 Settlement Currencies</li>
+					<li>150+ Local Payment Methods Worldwide</li>
+					<li>Account Updater</li>
+					<li>Inbuilt Fraud Prevention Rules</li>
+					<li>3D Secure, AVS and CVV Checks</li>
+					<li>260+ Global Enterprise Fraud Rules</li>
+				</ul>
+				<h3 id="card-present-terminal-pos-specific">Card Present (Terminal &amp; POS) Specific</h3>
+				<ul>
+					<li>Secure End-To-End Encryption</li>
+				</ul>
+				<h2 id="requirements">Requirements</h2>
+				<ul>
+					<li>Node.js</li>
+				</ul>
+				<h2 id="installation">Installation</h2>
+				<p>Installing the SDK into your solution is usually be done by either using NPM or Yarn.</p>
+				<p>To install via <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally">NPM</a>:</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save globalpayments-api</span>
+</code></pre><p>To install via <a href="https://yarnpkg.com/lang/en/docs/installing-dependencies/">Yarn</a>:</p>
+				<pre><code>yarn <span class="hljs-keyword">add</span><span class="bash"> globalpayments-api</span>
+</code></pre><h2 id="documentation-and-examples">Documentation and Examples</h2>
+				<p>You can find the latest SDK documentation along with code examples and test cards on the <a href="https://developer.realexpayments.com">Global Payments</a> and <a href="https://developer.heartlandpaymentsystems.com/documentation">Heartland</a> Developer Hubs.</p>
+				<p>In addition you can find working examples in the our example code repository.</p>
+				<p><em>Quick Tip</em>: The included <a href="https://github.com/globalpayments/node-sdk/tree/master/test">test suite</a> can be a great source of code samples for using the SDK!</p>
+				<h4 id="process-a-payment-example">Process a Payment Example</h4>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> card = <span class="hljs-keyword">new</span> CreditCardData();
+card.number = <span class="hljs-string">"4111111111111111"</span>;
+card.expMonth = <span class="hljs-string">"12"</span>;
+card.expYear = <span class="hljs-string">"2025"</span>;
+card.cvn = <span class="hljs-string">"123"</span>;
+
+card
+  .charge(<span class="hljs-number">129.99</span>)
+  .withCurrency(<span class="hljs-string">"EUR"</span>)
+  .execute()
+  .then(<span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> result = response.responseCode;
+    <span class="hljs-keyword">const</span> message = response.responseMessage;
+  })
+  .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-comment">// handle  errors</span>
+  });
+</code></pre>
+				<h4 id="test-card-data">Test Card Data</h4>
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Number</th>
+							<th>Exp Month</th>
+							<th>Exp Year</th>
+							<th>CVN</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Visa</td>
+							<td>4263970000005262</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>123</td>
+						</tr>
+						<tr>
+							<td>MasterCard</td>
+							<td>2223000010005780</td>
+							<td>12</td>
+							<td>2019</td>
+							<td>900</td>
+						</tr>
+						<tr>
+							<td>MasterCard</td>
+							<td>5425230000004415</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>123</td>
+						</tr>
+						<tr>
+							<td>Discover</td>
+							<td>6011000000000087</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>123</td>
+						</tr>
+						<tr>
+							<td>Amex</td>
+							<td>374101000000608</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>1234</td>
+						</tr>
+						<tr>
+							<td>JCB</td>
+							<td>3566000000000000</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>123</td>
+						</tr>
+						<tr>
+							<td>Diners Club</td>
+							<td>36256000000725</td>
+							<td>12</td>
+							<td>2025</td>
+							<td>123</td>
+						</tr>
+					</tbody>
+				</table>
+				<h4 id="testing-exceptions">Testing Exceptions</h4>
+				<p>During your integration you will want to test for specific issuer responses such as &#39;Card Declined&#39;. Because our sandbox environments do not actually reach out to issuing banks for authorizations, there are specific transaction amounts and/or card numbers that will trigger gateway and issuing bank responses. Please contact your support representative for a complete listing of values used to simulate transaction AVS/CVV results, declines, errors, and other responses that can be caught in your code. Example error handling code:</p>
+				<pre><code class="lang-javascript">card
+  .charge(<span class="hljs-number">-5</span>)
+  .withCurrency(<span class="hljs-string">"USD"</span>)
+  .withAddress(address)
+  .execute()
+  .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+    <span class="hljs-keyword">switch</span> (e.name) {
+      <span class="hljs-keyword">case</span> BuilderError.constructor.name:
+        <span class="hljs-comment">// handle builder errors</span>
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> ConfigurationError.constructor.name:
+        <span class="hljs-comment">// handle errors related to your services configuration</span>
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> GatewayError.constructor.name:
+        <span class="hljs-comment">// handle gateway errors/exceptions</span>
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> UnsupportedTransactionError.constructor.name:
+        <span class="hljs-comment">// handle errors when the configured gateway doesn't support</span>
+        <span class="hljs-comment">// desired transaction</span>
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> ApiError.constructor.name:
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-comment">// handle all other errors</span>
+        <span class="hljs-keyword">break</span>;
+    }
+  });
+</code></pre>
+				<h2 id="contributing">Contributing</h2>
+				<p>All our code is open sourced and we encourage fellow developers to contribute and help improve it!</p>
+				<ol>
+					<li>Fork it</li>
+					<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+					<li>Ensure SDK tests are passing</li>
+					<li>Commit your changes (<code>git commit -am &#39;Add some feature&#39;</code>)</li>
+					<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+					<li>Create new Pull Request</li>
+				</ol>
+				<h2 id="license">License</h2>
+				<p>This project is licensed under the GNU General Public License v2.0. Please see <a href="LICENSE.md">LICENSE.md</a> located at the project&#39;s root for more details.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/accounttype.html" class="tsd-kind-icon">Account<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/addresstype.html" class="tsd-kind-icon">Address<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/aliasaction.html" class="tsd-kind-icon">Alias<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/checktype.html" class="tsd-kind-icon">Check<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/currencytype.html" class="tsd-kind-icon">Currency<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/cvnpresenceindicator.html" class="tsd-kind-icon">Cvn<wbr>Presence<wbr>Indicator</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/ecommercechannel.html" class="tsd-kind-icon">Ecommerce<wbr>Channel</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/emailreceipt.html" class="tsd-kind-icon">Email<wbr>Receipt</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/entrymethod.html" class="tsd-kind-icon">Entry<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/exceptioncodes.html" class="tsd-kind-icon">Exception<wbr>Codes</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/fraudfiltermode.html" class="tsd-kind-icon">Fraud<wbr>Filter<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/giftentrymethod.html" class="tsd-kind-icon">Gift<wbr>Entry<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/hppversion.html" class="tsd-kind-icon">Hpp<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/inquirytype.html" class="tsd-kind-icon">Inquiry<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/paymentmethodtype.html" class="tsd-kind-icon">Payment<wbr>Method<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/paymentschedule.html" class="tsd-kind-icon">Payment<wbr>Schedule</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/reasoncode.html" class="tsd-kind-icon">Reason<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/recurringsequence.html" class="tsd-kind-icon">Recurring<wbr>Sequence</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/recurringtype.html" class="tsd-kind-icon">Recurring<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/reporttype.html" class="tsd-kind-icon">Report<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/schedulefrequency.html" class="tsd-kind-icon">Schedule<wbr>Frequency</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/seccode.html" class="tsd-kind-icon">Sec<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/taxtype.html" class="tsd-kind-icon">Tax<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/timezoneconversion.html" class="tsd-kind-icon">Time<wbr>Zone<wbr>Conversion</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/transactionmodifier.html" class="tsd-kind-icon">Transaction<wbr>Modifier</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/transactiontype.html" class="tsd-kind-icon">Transaction<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/address.html" class="tsd-kind-icon">Address</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/apierror.html" class="tsd-kind-icon">Api<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/argumenterror.html" class="tsd-kind-icon">Argument<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/authorizationbuilder.html" class="tsd-kind-icon">Authorization<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/basebuilder.html" class="tsd-kind-icon">Base<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/batchservice.html" class="tsd-kind-icon">Batch<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/batchsummary.html" class="tsd-kind-icon">Batch<wbr>Summary</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/buildererror.html" class="tsd-kind-icon">Builder<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/cash.html" class="tsd-kind-icon">Cash</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/checkservice.html" class="tsd-kind-icon">Check<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/configurationerror.html" class="tsd-kind-icon">Configuration<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/credit.html" class="tsd-kind-icon">Credit</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/creditcarddata.html" class="tsd-kind-icon">Credit<wbr>Card<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/creditservice.html" class="tsd-kind-icon">Credit<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/credittrackdata.html" class="tsd-kind-icon">Credit<wbr>Track<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/customer.html" class="tsd-kind-icon">Customer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/debit.html" class="tsd-kind-icon">Debit</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/debitservice.html" class="tsd-kind-icon">Debit<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/debittrackdata.html" class="tsd-kind-icon">Debit<wbr>Track<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ebt.html" class="tsd-kind-icon">EBT</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ebtcarddata.html" class="tsd-kind-icon">EBTCard<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ebtservice.html" class="tsd-kind-icon">EBTService</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ebttrackdata.html" class="tsd-kind-icon">EBTTrack<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/echeck.html" class="tsd-kind-icon">ECheck</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ecommerceinfo.html" class="tsd-kind-icon">Ecommerce<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/encryptiondata.html" class="tsd-kind-icon">Encryption<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gateway.html" class="tsd-kind-icon">Gateway</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gatewayerror.html" class="tsd-kind-icon">Gateway<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/generationutils.html" class="tsd-kind-icon">Generation<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/giftcard.html" class="tsd-kind-icon">Gift<wbr>Card</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/giftservice.html" class="tsd-kind-icon">Gift<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hostedpaymentconfig.html" class="tsd-kind-icon">Hosted<wbr>Payment<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hostedpaymentdata.html" class="tsd-kind-icon">Hosted<wbr>Payment<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hostedservice.html" class="tsd-kind-icon">Hosted<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/managementbuilder.html" class="tsd-kind-icon">Management<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/notimplementederror.html" class="tsd-kind-icon">Not<wbr>Implemented<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/payplanconnector.html" class="tsd-kind-icon">Pay<wbr>Plan<wbr>Connector</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/paymentmethod.html" class="tsd-kind-icon">Payment<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/porticoconnector.html" class="tsd-kind-icon">Portico<wbr>Connector</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/realexconnector.html" class="tsd-kind-icon">Realex<wbr>Connector</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/recurringbuilder.html" class="tsd-kind-icon">Recurring<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/recurringentity.html" class="tsd-kind-icon">Recurring<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/recurringpaymentmethod.html" class="tsd-kind-icon">Recurring<wbr>Payment<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/recurringservice.html" class="tsd-kind-icon">Recurring<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/reportbuilder.html" class="tsd-kind-icon">Report<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/reportingservice.html" class="tsd-kind-icon">Reporting<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/restgateway.html" class="tsd-kind-icon">Rest<wbr>Gateway</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/schedule.html" class="tsd-kind-icon">Schedule</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/servicesconfig.html" class="tsd-kind-icon">Services<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/servicescontainer.html" class="tsd-kind-icon">Services<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/stringutils.html" class="tsd-kind-icon">String<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/transaction.html" class="tsd-kind-icon">Transaction</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/transactionbuilder.html" class="tsd-kind-icon">Transaction<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/transactionreference.html" class="tsd-kind-icon">Transaction<wbr>Reference</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/transactionreportbuilder.html" class="tsd-kind-icon">Transaction<wbr>Report<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/transactionsummary.html" class="tsd-kind-icon">Transaction<wbr>Summary</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/unsupportedtransactionerror.html" class="tsd-kind-icon">Unsupported<wbr>Transaction<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/validationclause.html" class="tsd-kind-icon">Validation<wbr>Clause</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/validationtarget.html" class="tsd-kind-icon">Validation<wbr>Target</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/validations.html" class="tsd-kind-icon">Validations</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/xmlgateway.html" class="tsd-kind-icon">Xml<wbr>Gateway</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iauthable.html" class="tsd-kind-icon">IAuthable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ibalanceable.html" class="tsd-kind-icon">IBalanceable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icarddata.html" class="tsd-kind-icon">ICard<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ichargable.html" class="tsd-kind-icon">IChargable</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/idictionary.html" class="tsd-kind-icon">IDictionary</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ieditable.html" class="tsd-kind-icon">IEditable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iencryptable.html" class="tsd-kind-icon">IEncryptable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ipaymentgateway.html" class="tsd-kind-icon">IPayment<wbr>Gateway</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ipaymentmethod.html" class="tsd-kind-icon">IPayment<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ipinprotected.html" class="tsd-kind-icon">IPin<wbr>Protected</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iprepayable.html" class="tsd-kind-icon">IPre<wbr>Payable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irecurringentity.html" class="tsd-kind-icon">IRecurring<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irecurringservice.html" class="tsd-kind-icon">IRecurring<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irefundable.html" class="tsd-kind-icon">IRefundable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireversable.html" class="tsd-kind-icon">IReversable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iruleset.html" class="tsd-kind-icon">IRule<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itokenizable.html" class="tsd-kind-icon">ITokenizable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itrackdata.html" class="tsd-kind-icon">ITrack<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iverifyable.html" class="tsd-kind-icon">IVerifyable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ivoidable.html" class="tsd-kind-icon">IVoidable</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#b64pad" class="tsd-kind-icon">b64pad</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#chrsz" class="tsd-kind-icon">chrsz</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#hexcase" class="tsd-kind-icon">hexcase</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#b64_hmac_sha1" class="tsd-kind-icon">b64_<wbr>hmac_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#b64_sha1" class="tsd-kind-icon">b64_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#binb2b64" class="tsd-kind-icon">binb2b64</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#binb2hex" class="tsd-kind-icon">binb2hex</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#binb2str" class="tsd-kind-icon">binb2str</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#core_hmac_sha1" class="tsd-kind-icon">core_<wbr>hmac_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#core_sha1" class="tsd-kind-icon">core_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hex_hmac_sha1" class="tsd-kind-icon">hex_<wbr>hmac_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hex_sha1" class="tsd-kind-icon">hex_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#request" class="tsd-kind-icon">request</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#rol" class="tsd-kind-icon">rol</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#safe_add" class="tsd-kind-icon">safe_<wbr>add</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#sha1_ft" class="tsd-kind-icon">sha1_<wbr>ft</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#sha1_kt" class="tsd-kind-icon">sha1_<wbr>kt</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#str2binb" class="tsd-kind-icon">str2binb</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#str_hmac_sha1" class="tsd-kind-icon">str_<wbr>hmac_<wbr>sha1</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#str_sha1" class="tsd-kind-icon">str_<wbr>sha1</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
