@@ -3,6 +3,7 @@ import {
   AddressType,
   AliasAction,
   EcommerceInfo,
+  FraudFilterMode,
   GiftCard,
   HostedPaymentData,
   InquiryType,
@@ -38,6 +39,7 @@ export class AuthorizationBuilder extends TransactionBuilder<Transaction> {
   public description: string;
   public dynamicDescriptor: string;
   public ecommerceInfo: EcommerceInfo;
+  public fraudFilterMode: FraudFilterMode;
   public gratuity: string | number;
   public convenienceAmt: string | number;
   public shippingAmt: string | number;
@@ -441,6 +443,19 @@ export class AuthorizationBuilder extends TransactionBuilder<Transaction> {
   public withEcommerceInfo(ecommerceInfo?: EcommerceInfo) {
     if (ecommerceInfo !== undefined) {
       this.ecommerceInfo = ecommerceInfo;
+    }
+    return this;
+  }
+
+  /**
+   * Sets the fraud filter mode.
+   *
+   * @param fraudFilterMode
+   * @returns AuthorizationBuilder
+   */
+  public withFraudFilterMode(fraudFilterMode?: FraudFilterMode) {
+    if (fraudFilterMode !== undefined) {
+      this.fraudFilterMode = fraudFilterMode;
     }
     return this;
   }

@@ -1,6 +1,7 @@
 import test from "ava";
 import {
   CreditCardData,
+  FraudFilterMode,
   GatewayError,
   RecurringSequence,
   RecurringType,
@@ -206,4 +207,18 @@ test.only("credit auth mobile - google pay", async (t) => {
 
   t.truthy(invalidTokenError);
   t.is(invalidTokenError.responseCode, "509", invalidTokenError.responseMessage);
+});
+
+test.only("credit sale - with fraud filter mode", async (t) => {
+  t.plan(2);
+
+  const sale = await card
+    .authorize("14")
+    .withCurrency("USD")
+    .withAllowDuplicates(true)
+    .withFraudFilterMode(FraudFilterMode.Off)
+    .execute();
+
+  t.truthy(sale);
+  t.is(sale.responseCode, "00", sale.responseMessage);
 });

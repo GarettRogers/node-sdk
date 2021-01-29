@@ -206,6 +206,10 @@ export class RealexConnector extends XmlGateway implements IRecurringService {
       subElement(mpi, "eci").append(cData(builder.ecommerceInfo.eci));
     }
 
+    if (builder.fraudFilterMode) {
+      subElement(request, "fraudfilter", { mode: builder.fraudFilterMode.toString() });
+    }
+
     return this.doTransaction(this.buildEnvelope(request)).then((response) =>
       this.mapResponse(response),
     );
